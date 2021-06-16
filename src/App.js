@@ -9,7 +9,7 @@ import Button from './Button';
 import { useState } from 'react';
 
 const apiToken =
-  'BQDdtZO0iCRotdJieXAUEeZvFqvKrWrcIYy-9GLGIRZ0y93OsZUWJUsX2RU4o5VnnUL1k8nXCJ11VfFnM2h7k6yJgNVaczdrjuv5o6RXP6imoBCWDc_ZcB9Qd9BspRHkL7u-Roy79z6AP_GrOmA-nMMpjVmCIT6Z0djAfAGlMiqJ';
+  'BQC1j1pHOnZD-cKHqkIH7wR0GwfuiFn2f68EXpkItgKusPlbSSt7e77EOdb-FDqugy2T__ccDF_t9a6v1AlpmOv2KAj1eakEWCCe7h-Y4T7XHzC9czScolwy5xrmqH67uiHILixgFV-MnatnecBcd9tGprS-GjWMwA0MxwQGtC6g';
 
 function shuffleArray(array) {
   let counter = array.length;
@@ -46,8 +46,8 @@ const App = () => {
       .then((response) => response.json())
       .then((data) => {
         console.log("Réponse reçue ! Voilà ce que j'ai reçu : ", data);
-        setsongsloaded(true);
         settracks(data.items);
+        setsongsloaded(true);
       });
   }, []);
 
@@ -67,7 +67,10 @@ const App = () => {
       {songsloaded ? (
         <>
           <div className="App-images">
-            <p>J'ai trouvé {tracks.length} musiques.</p>
+            <p>
+              J'ai trouvé {tracks.length} musiques. La première est
+              {tracks[0].track.name}.
+            </p>
           </div>
           <div className="App-buttons"></div>
         </>
