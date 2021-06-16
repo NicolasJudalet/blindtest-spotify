@@ -30,6 +30,11 @@ function getRandomNumber(x) {
   return Math.floor(Math.random() * x);
 }
 
+const AlbumCover = (props) => {
+  console.log(props);
+  return <img src={props.tracks[0].track.album.images[1].url} />;
+};
+
 const App = () => {
   const [text, setText] = useState('');
   const [tracks, settracks] = useState('');
@@ -71,6 +76,7 @@ const App = () => {
               J'ai trouvé {tracks.length} musiques. La première est
               {tracks[0].track.name}.
             </p>
+            <AlbumCover tracks={tracks} />
           </div>
           <div className="App-buttons"></div>
         </>
